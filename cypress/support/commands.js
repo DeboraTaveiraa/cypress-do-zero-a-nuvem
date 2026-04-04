@@ -23,3 +23,58 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('fillMandatoryFieldsAndSubmit', () => {
+  cy.get('#firstName').type('Débora')
+  cy.get('#lastName').type('Taveira')
+  cy.get('#email').type('deborataveira.dev@gmail.com')
+  cy.get('#open-text-area').type('Testando...')
+
+  cy.get('#firstName').should('have.value', 'Débora')
+  cy.get('#lastName').should('have.value', 'Taveira')
+  cy.get('#email').should('have.value', 'deborataveira.dev@gmail.com')
+  cy.get('#open-text-area').should('have.value', 'Testando...')
+
+  cy.contains('button', 'Enviar').click()
+
+  cy.get('.success').should('be.visible')
+})
+
+Cypress.Commands.add('fillMandatoryFieldsAndSubmitWithArgument', (user) => {
+  cy.get('#firstName').type(user.name)
+  cy.get('#lastName').type(user.lastName)
+  cy.get('#email').type(user.email)
+  cy.get('#open-text-area').type('Testando...')
+
+  cy.get('#firstName').should('have.value', user.name)
+  cy.get('#lastName').should('have.value', user.lastName)
+  cy.get('#email').should('have.value', user.email)
+  cy.get('#open-text-area').should('have.value', 'Testando...')
+
+  cy.contains('button', 'Enviar').click()
+
+  cy.get('.success').should('be.visible')
+})
+
+const USER_DEFAULT = {
+  name: 'Débora',
+  lastName: 'Taveira',
+  email: 'deborataveira.dev@gmail.com'
+}
+
+Cypress.Commands.add('fillMandatoryFieldsAndSubmitWithArgumentDefault', (user = USER_DEFAULT) => {
+  cy.get('#firstName').type(user.name)
+  cy.get('#lastName').type(user.lastName)
+  cy.get('#email').type(user.email)
+  cy.get('#open-text-area').type('Testando...')
+
+  cy.get('#firstName').should('have.value', user.name)
+  cy.get('#lastName').should('have.value', user.lastName)
+  cy.get('#email').should('have.value', user.email)
+  cy.get('#open-text-area').should('have.value', 'Testando...')
+
+  cy.contains('button', 'Enviar').click()
+
+  cy.get('.success').should('be.visible')
+})
+
