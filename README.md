@@ -1,28 +1,95 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# 🌲 Cypress Studies – From Zero to the Cloud ☁️
 
-👋 Seja bem-vindo(a)!
+Projeto de estudos baseado no curso **"Cypress, from Zero to the Cloud"**, com foco em prática de automação de testes end-to-end utilizando o Cypress.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+Este repositório foi forkado e adaptado para fins de aprendizado, experimentação e evolução prática em QA.
 
-## O que você vai aprender?
+## 🎯 Objetivo
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+Consolidar conhecimentos em:
 
-## Vamos começar?
+* Automação de testes E2E
+* Uso do Cypress na prática
+* Execução de testes em diferentes viewports (desktop e mobile)
+* Boas práticas de testes automatizados
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
 
-___
+## ⚙️ Pré-requisitos
 
-Este é um curso da **Escola Talking About Testing**.
+Para executar este projeto, é necessário ter instalado:
+
+* Git
+* Node.js
+* npm
+
+Versões utilizadas neste projeto:
+
+* Git: 2.43.0
+* Node.js: v18.20.8
+* npm: 10.8.2
+
+Versões recomendadas pelo professor _(tive problemas com essas versões)_:
+* Git: 2.42.1
+* Node.js: v20.13.1
+* npm: 10.8.1
+
+> Recomenda-se utilizar versões LTS iguais ou superiores.
+
+## 📦 Instalação
+
+Clone o repositório e instale as dependências:
+
+```bash
+npm install
+```
+
+## 🧪 Execução dos Testes
+
+Os testes podem ser executados em diferentes modos e resoluções.
+
+
+### 💻 Desktop
+
+Executar testes em modo headless:
+
+```bash
+npm test
+```
+
+Abrir interface do Cypress:
+
+```bash
+npm run cy:open
+```
+
+### 📱 Mobile
+
+Executar testes em modo headless:
+
+```bash
+npm run test:mobile
+```
+
+Abrir Cypress com viewport mobile:
+
+```bash
+npm run cy:open:mobile
+```
+
+## 🧠 Aprendizados
+
+Durante o desenvolvimento deste projeto, foram praticados:
+
+* Escrita de testes automatizados com Cypress
+* Configuração de ambientes de teste
+* Execução em diferentes resoluções (responsividade)
+* Organização de testes E2E
+
+## ⭐ Contribuição
+
+Este projeto é voltado para estudos.
+Sinta-se à vontade para explorar, adaptar e evoluir a partir dele.
+
+## 💚 Créditos
+
+Projeto original desenvolvido por [Walmyr](https://walmyr.dev/) e adaptado para fins de estudo.
