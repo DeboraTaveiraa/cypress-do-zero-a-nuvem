@@ -7,27 +7,30 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.title().should('eq', 'Central de Atendimento ao Cliente TAT')
   })
 
-  it('preenche os campos obrigatórios e envia o formulário', () => {
-    cy.clock()
-
-    cy.get('#firstName').type('Débora')
-    cy.get('#lastName').type('Taveira')
-    cy.get('#email').type('deborataveira.dev@gmail.com')
-    cy.get('#open-text-area').type('Testando...')
-    
-    cy.get('#firstName').should('have.value', 'Débora')
-    cy.get('#lastName').should('have.value', 'Taveira')
-    cy.get('#email').should('have.value', 'deborataveira.dev@gmail.com')
-    cy.get('#open-text-area').should('have.value', 'Testando...')
-
-    cy.contains('button[type="submit"]', 'Enviar').click()
-
-    cy.get('.success').should('be.visible')
-
-    cy.tick(3000)
-
-    cy.get('.success').should('not.be.visible')
-
+  // validates the correct submission of the form more than once in a row.
+  Cypress._.times(3, () => {
+    it('preenche os campos obrigatórios e envia o formulário', () => {
+      cy.clock()
+  
+      cy.get('#firstName').type('Débora')
+      cy.get('#lastName').type('Taveira')
+      cy.get('#email').type('deborataveira.dev@gmail.com')
+      cy.get('#open-text-area').type('Testando...')
+      
+      cy.get('#firstName').should('have.value', 'Débora')
+      cy.get('#lastName').should('have.value', 'Taveira')
+      cy.get('#email').should('have.value', 'deborataveira.dev@gmail.com')
+      cy.get('#open-text-area').should('have.value', 'Testando...')
+  
+      cy.contains('button[type="submit"]', 'Enviar').click()
+  
+      cy.get('.success').should('be.visible')
+  
+      cy.tick(3000)
+  
+      cy.get('.success').should('not.be.visible')
+  
+    })
   })
 
   it('preenche os campos obrigatórios e envia o formulário - textarea com delay 0', () => {
