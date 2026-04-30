@@ -256,4 +256,10 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .invoke('hide')
       .should('not.be.visible')
   })
+
+  it('preenche o campo da área de texto usando o comando invoke', () => {
+    cy.get('#open-text-area')
+      .invoke('val', 'um texto excrito pelo invoke')
+      .should('have.value', 'um texto excrito pelo invoke')
+  })
 })
